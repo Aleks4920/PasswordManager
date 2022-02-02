@@ -1,0 +1,33 @@
+WindowManager:
+    LoginScreen:
+    SecondWindow:
+
+    
+<LoginScreen>:
+    name: "main"
+
+    GridLayout:
+        cols:1
+
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Password: "
+
+            TextInput:
+                id: passw
+                multiline: False
+                on_touch_down: if self.collide_point(*args[1].pos): self.text = ""
+
+        Button:
+            text: "Submit"
+            on_release:
+                app.root.current = "second"
+                app.root.current = "second" if passw.text == "pass" else "main"
+                root.manager.transition.direction = "left"
+
+
+
+<SecondWindow>:
+    name: "second"
